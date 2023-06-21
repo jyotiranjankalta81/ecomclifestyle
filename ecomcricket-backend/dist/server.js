@@ -47,7 +47,7 @@ if (config_1.config.env === 'production') {
 // v1 api routes
 exports.app.use('/api', v1_1.default);
 //upload image
-exports.app.use('*/images', express_1.default.static('public/uploads'));
+exports.app.use('*/static', express_1.default.static('public/uploads'));
 exports.app.use('*/defaults', express_1.default.static('public/defaults'));
 exports.app.use('*/consent', express_1.default.static('public/attachments'));
 // send back a 404 error for any unknown api request

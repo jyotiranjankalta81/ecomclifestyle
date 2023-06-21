@@ -15,7 +15,7 @@ CouponInstance.init({
     COUPON_CODE: {
         type: sequelize_1.DataTypes.STRING,
         allowNull: false,
-        unique: true,
+        // unique: true,
     },
     COUPON_MAXDISCOUNT: {
         type: sequelize_1.DataTypes.INTEGER,

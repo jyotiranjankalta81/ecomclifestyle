@@ -1,29 +1,25 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CategoryInstance = void 0;
+exports.CountryInstance = void 0;
 const sequelize_1 = require("sequelize");
 const db_connection_1 = require("../db/db-connection");
-class CategoryInstance extends sequelize_1.Model {
+class CountryInstance extends sequelize_1.Model {
 }
-exports.CategoryInstance = CategoryInstance;
-CategoryInstance.init({
-    CATEGORY_ID: {
+exports.CountryInstance = CountryInstance;
+CountryInstance.init({
+    COUNTRY_ID: {
         type: sequelize_1.DataTypes.INTEGER,
         primaryKey: true,
         allowNull: false,
         autoIncrement: true
     },
-    CATEGORY_NAME: {
+    COUNTRY_NAME: {
         type: sequelize_1.DataTypes.STRING,
         allowNull: false,
     },
-    CATEGORY_CODE: {
+    COUNTRY_CODE: {
         type: sequelize_1.DataTypes.STRING,
         allowNull: false,
-    },
-    CATEGORY_IMAGE: {
-        type: sequelize_1.DataTypes.TEXT,
-        allowNull: true,
     },
     ISDELETED: {
         type: sequelize_1.DataTypes.BOOLEAN(),
@@ -32,6 +28,6 @@ CategoryInstance.init({
     },
 }, {
     sequelize: db_connection_1.sequelizeDB,
-    tableName: 'tbl_Category',
+    tableName: 'tbl_country',
 });
-//# sourceMappingURL=category.model.js.map
+//# sourceMappingURL=country.model.js.map

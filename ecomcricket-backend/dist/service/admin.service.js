@@ -8,6 +8,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AdminService = void 0;
 const db_connection_1 = require("../db/db-connection");
@@ -21,6 +24,7 @@ const banner_model_1 = require("../model/banner.model");
 const order_model_1 = require("../model/order.model");
 const coupon_model_1 = require("../model/coupon.model");
 const Brand_model_1 = require("../model/Brand.model");
+const custom_helpers_1 = __importDefault(require("../utils/custom_helpers"));
 class AdminServiceClass {
     constructor() {
         this.GetCategory = () => __awaiter(this, void 0, void 0, function* () {
@@ -28,26 +32,36 @@ class AdminServiceClass {
                 where: {
                     ISDELETED: false,
                 },
+                order: [["CATEGORY_ID", "DESC"]],
             });
             return result;
         });
         this.checkcategorybyname = (data) => __awaiter(this, void 0, void 0, function* () {
             const result = yield category_model_1.CategoryInstance.findOne({
                 where: {
-                    CATEGORY_NAME: data.CATEGORY_NAME,
+                    CATEGORY_CODE: data.CATEGORY_CODE,
                 },
+                order: [["CATEGORY_ID", "DESC"]],
             });
             return result;
         });
-        this.PostCategory = (data) => __awaiter(this, void 0, void 0, function* () {
+        this.PostCategory = (data, file) => __awaiter(this, void 0, void 0, function* () {
             const result = yield category_model_1.CategoryInstance.create({
                 CATEGORY_NAME: data.CATEGORY_NAME,
+                CATEGORY_CODE: data.CATEGORY_CODE,
+                CATEGORY_IMAGE: custom_helpers_1.default.file_changepath(file === null || file === void 0 ? void 0 : file.path),
             });
             return result;
         });
-        this.PutCategory = (data) => __awaiter(this, void 0, void 0, function* () {
+        this.PutCategory = (data, file) => __awaiter(this, void 0, void 0, function* () {
+            const _categoryImage = (file === null || file === void 0 ? void 0 : file.path)
+                ? custom_helpers_1.default.file_changepath(file.path)
+                : data.CATEGORY_IMAGE;
+            console.log("🚀 ~ file: admin.service.ts:56 ~ AdminServiceClass ~ PutCategory= ~ _categoryImage:", _categoryImage);
             const result = yield category_model_1.CategoryInstance.update({
                 CATEGORY_NAME: data.CATEGORY_NAME,
+                CATEGORY_CODE: data.CATEGORY_CODE,
+                CATEGORY_IMAGE: _categoryImage,
             }, {
                 where: {
                     CATEGORY_ID: data.CATEGORY_ID,
@@ -128,11 +142,12 @@ class AdminServiceClass {
             let productBarcode = "";
             if (files.length > 0) {
                 files.forEach((img) => {
-                    productImage.push(img.path.replace("public/uploads", "images"));
+                    productImage.push(img.path.replace(/\\/g, "/").split("public/").pop());
+                    // productImage.push(file_changepath(img.path));
                 });
             }
             else {
-                productImage.push('defaults/images/NoImage.png');
+                productImage.push("defaults/images/NoImage.png");
             }
             const result = yield product_model_1.ProductInstance.create({
                 CATEGORY_ID: data.CATEGORY_ID,
@@ -144,22 +159,23 @@ class AdminServiceClass {
                 PRODUCT_QUANTITY: data.PRODUCT_QUANTITY,
                 PRODUCT_DESCRIPTION: data.PRODUCT_DESCRIPTION,
                 PRODUCT_PRICE: data.PRODUCT_PRICE,
-                PRODUCT_DISCOUNT: 0,
-                PRODUCT_DISCOUNTSTATUS: false,
+                PRODUCT_DISCOUNT: data.PRODUCT_DISCOUNT,
+                PRODUCT_DISCOUNTSTATUS: data.PRODUCT_DISCOUNTSTATUS === 0 ? false : true,
                 PRODUCT_TAG: data.PRODUCT_TAG,
                 PRODUCT_IMAGE: JSON.stringify(productImage),
                 PRODUCT_BARCODE: productBarcode,
                 COMPANYCODE: data.COMPANYCODE,
                 WEIGHT: data.WEIGHT,
-                PACKAGETYPE: data.PACKAGETYPE,
+                PACKAGETYPE: data.WEIGHT > 30 ? "Parcel" : "document",
                 BRANCHNAME: data.BRANCHNAME,
                 TECHINFO: data.TECHINFO,
                 ADDITINFO: data.ADDITINFO,
             });
+            console.log("result", result);
             return result;
         });
         this.PostBanner = (data, files, userid) => __awaiter(this, void 0, void 0, function* () {
-            let BannerImage = files === null || files === void 0 ? void 0 : files.path.replace("public/uploads", "images");
+            let BannerImage = custom_helpers_1.default.file_changepath(files === null || files === void 0 ? void 0 : files.path);
             const result = yield banner_model_1.BannnerInstance.create({
                 BANNER_DESC: data.BANNER_DESC,
                 BANNER_IMAGE: BannerImage,
@@ -168,7 +184,7 @@ class AdminServiceClass {
             return result;
         });
         this.UpdateBanner = (data, files, userid) => __awaiter(this, void 0, void 0, function* () {
-            let BannerImage = files === null || files === void 0 ? void 0 : files.path.replace("public/uploads", "images");
+            let BannerImage = custom_helpers_1.default.file_changepath(files === null || files === void 0 ? void 0 : files.path);
             const result = yield banner_model_1.BannnerInstance.update({
                 BANNER_DESC: data.BANNER_DESC,
                 BANNER_IMAGE: BannerImage,
@@ -210,11 +226,22 @@ class AdminServiceClass {
             });
             return result;
         });
+        this.delete_product = (data) => __awaiter(this, void 0, void 0, function* () {
+            const result = yield product_model_1.ProductInstance.update({
+                ISDELETED: true,
+            }, {
+                where: {
+                    PRODUCT_ID: data.PRODUCT_ID,
+                },
+            });
+            return result;
+        });
         this.GetProductColor = () => __awaiter(this, void 0, void 0, function* () {
             const result = yield ProductColor_model_1.ProductColorInstance.findAll({
                 where: {
                     ISDELETED: false,
                 },
+                order: [["createdAt", "DESC"]],
             });
             return result;
         });
@@ -267,15 +294,19 @@ class AdminServiceClass {
             });
             return result;
         });
-        this.PostProductColor = (data) => __awaiter(this, void 0, void 0, function* () {
+        this.PostProductColor = (data, file) => __awaiter(this, void 0, void 0, function* () {
             const result = yield ProductColor_model_1.ProductColorInstance.create({
                 PRODUCTCOLOR_NAME: data.PRODUCTCOLOR_NAME,
+                PRODUCTCOLOR_CODE: data.PRODUCTCOLOR_CODE,
+                PRODUCTCOLOR_IMAGE: custom_helpers_1.default.file_changepath(file === null || file === void 0 ? void 0 : file.path),
             });
             return result;
         });
-        this.UpdateProductColor = (data) => __awaiter(this, void 0, void 0, function* () {
+        this.UpdateProductColor = (data, file) => __awaiter(this, void 0, void 0, function* () {
             const result = yield ProductColor_model_1.ProductColorInstance.update({
                 PRODUCTCOLOR_NAME: data.PRODUCTCOLOR_NAME,
+                PRODUCTCOLOR_CODE: data.PRODUCTCOLOR_CODE,
+                PRODUCTCOLOR_IMAGE: data.PRODUCTCOLOR_IMAGE || custom_helpers_1.default.file_changepath(file.path),
             }, {
                 where: {
                     PRODUCTCOLOR_ID: data.PRODUCTCOLOR_ID,
@@ -288,17 +319,16 @@ class AdminServiceClass {
                 ISDELETED: true,
             }, {
                 where: {
-                    PRODUCTCOLOR_ID: data.PRODUCTCOLOR_ID,
+                    PRODUCTCOLOR_ID: data.id,
                 },
             });
             return result;
         });
         this.UpdateProduct = (data, files) => __awaiter(this, void 0, void 0, function* () {
-            let productImage = JSON.parse(data.PRODUCT_IMAGE_OLD);
-            let productBarcode = "";
+            let productImage = data.PRODUCT_IMAGE_OLD && data.PRODUCT_IMAGE_OLD.split(",");
             if (files.length > 0) {
                 files.forEach((img) => {
-                    productImage.push(img.path.replace("public/uploads", "images"));
+                    productImage.push(custom_helpers_1.default.file_changepath(img.path));
                 });
             }
             const result = yield product_model_1.ProductInstance.update({
@@ -315,7 +345,6 @@ class AdminServiceClass {
                 PRODUCT_DISCOUNTSTATUS: data.PRODUCT_DISCOUNTSTATUS,
                 PRODUCT_TAG: data.PRODUCT_TAG,
                 PRODUCT_IMAGE: JSON.stringify(productImage),
-                PRODUCT_BARCODE: productBarcode,
                 COMPANYCODE: data.COMPANYCODE,
                 WEIGHT: data.WEIGHT,
                 PACKAGETYPE: data.PACKAGETYPE,
@@ -411,31 +440,38 @@ class AdminServiceClass {
             return result;
         });
         this.bulkupload = (data) => __awaiter(this, void 0, void 0, function* () {
-            const result = yield product_model_1.ProductInstance.create({
-                CATEGORY_ID: data.CATEGORY_ID,
-                SUBCATEGORY_ID: data.SUBCATEGORY_ID,
-                BRAND_ID: data.BRAND_ID,
-                PRODUCTSIZE_ID: data.PRODUCTSIZE_ID,
-                PRODUCTCOLOR_ID: data.PRODUCTCOLOR_ID,
-                PRODUCT_NAME: data.PRODUCT_NAME,
-                PRODUCT_QUANTITY: data.PRODUCT_QUANTITY,
-                PRODUCT_DESCRIPTION: data.PRODUCT_DESCRIPTION,
-                PRODUCT_PRICE: data.PRODUCT_PRICE,
-                PRODUCT_DISCOUNT: data.PRODUCT_DISCOUNT,
-                PRODUCT_DISCOUNTSTATUS: data.PRODUCT_DISCOUNTSTATUS === 0 ? false : true,
-                PRODUCT_TAG: Math.floor(Math.random() * 1000000000),
-                PRODUCT_IMAGE: JSON.stringify(['defaults/images/NoImage.png']),
-                COMPANYCODE: data.COMPANYCODE,
-                WEIGHT: data.WEIGHT,
-                PACKAGETYPE: 'Parcel',
-                BRANCHNAME: data.BRANCHNAME,
-                TECHINFO: data.TECHINFO,
-                ADDITINFO: data.ADDITINFO,
-            });
-            return result;
+            try {
+                const result = yield product_model_1.ProductInstance.create({
+                    CATEGORY_ID: data.CATEGORY_ID,
+                    BRAND_ID: data.BRAND_ID,
+                    PRODUCTSIZE_ID: data.PRODUCTSIZE_ID,
+                    PRODUCTCOLOR_ID: data.PRODUCTCOLOR_ID,
+                    PRODUCT_NAME: data.PRODUCT_NAME,
+                    PRODUCT_QUANTITY: data.PRODUCT_QUANTITY,
+                    PRODUCT_DESCRIPTION: data.PRODUCT_DESCRIPTION,
+                    PRODUCT_PRICE: data.PRODUCT_PRICE,
+                    PRODUCT_DISCOUNT: data.PRODUCT_DISCOUNT,
+                    PRODUCT_DISCOUNTSTATUS: data.PRODUCT_DISCOUNTSTATUS === 0 ? false : true,
+                    PRODUCT_TAG: Math.floor(Math.random() * 1000000000),
+                    PRODUCT_IMAGE: data.PRODUCT_IMAGE
+                        ? JSON.stringify([data === null || data === void 0 ? void 0 : data.PRODUCT_IMAGE])
+                        : JSON.stringify(["defaults/images/NoImage.png"]),
+                    COMPANYCODE: data.COMPANYCODE,
+                    WEIGHT: data.WEIGHT,
+                    PACKAGETYPE: "Parcel",
+                    BRANCHNAME: data.BRANCHNAME,
+                    TECHINFO: data.TECHINFO,
+                    ADDITINFO: data.ADDITINFO,
+                });
+                return result;
+            }
+            catch (error) {
+                return error.message;
+            }
         });
         this.createCoupon = (data, files, user) => __awaiter(this, void 0, void 0, function* () {
-            let couponimage = files.path.replace("public/uploads", "images") || 'defaults/images/NoImage.png';
+            let couponimage = files.path.replace("public/uploads", "images") ||
+                "defaults/images/NoImage.png";
             let result = yield coupon_model_1.CouponInstance.create({
                 COUPON_IMAGE: couponimage,
                 COUPON_CODE: data.COUPON_CODE,
@@ -451,23 +487,31 @@ class AdminServiceClass {
         this.checkbrandbyname = (name) => __awaiter(this, void 0, void 0, function* () {
             let result = yield Brand_model_1.BrandInstance.findOne({
                 where: {
-                    BRAND_NAME: name,
+                    BRAND_CODE: name,
+                    ISDELETED: false,
                 },
             });
             return result;
         });
         this.CreateBrands = (data) => __awaiter(this, void 0, void 0, function* () {
-            let uploadbrand = data.file.path && data.file.path.replace("public/uploads", "images") || '';
+            var _a, _b;
+            let uploadbrand = custom_helpers_1.default.file_changepath((_a = data === null || data === void 0 ? void 0 : data.file) === null || _a === void 0 ? void 0 : _a.path);
             let result = yield Brand_model_1.BrandInstance.create({
                 BRAND_NAME: data.body.BRAND_NAME,
                 BRAND_IMAGE: uploadbrand,
+                BRAND_CODE: (_b = data.body) === null || _b === void 0 ? void 0 : _b.BRAND_CODE,
             }).catch((err) => {
                 console.error(err);
             });
             return result;
         });
         this.getBrands = () => __awaiter(this, void 0, void 0, function* () {
-            let result = yield Brand_model_1.BrandInstance.findAll();
+            let result = yield Brand_model_1.BrandInstance.findAll({
+                where: {
+                    ISDELETED: false,
+                },
+                order: [["createdAt", "DESC"]],
+            });
             return result;
         });
         this.getCoupon = (data) => __awaiter(this, void 0, void 0, function* () {
@@ -494,7 +538,8 @@ class AdminServiceClass {
             return result;
         });
         this.updateCoupon = (data, files, user) => __awaiter(this, void 0, void 0, function* () {
-            let couponimage = files.path.replace("public/uploads", "images") || 'defaults/images/NoImage.png';
+            let couponimage = files.path.replace("public/uploads", "images") ||
+                "defaults/images/NoImage.png";
             let result = yield coupon_model_1.CouponInstance.update({
                 COUPON_IMAGE: couponimage,
                 COUPON_CODE: data.COUPON_CODE,
@@ -561,7 +606,7 @@ class AdminServiceClass {
             return { expiredCoupons: coupons.length };
         });
         this.updateBrands = (data) => __awaiter(this, void 0, void 0, function* () {
-            let upload = data.body.BRAND_IMAGE || data.file.path && data.file.path.replace("public/uploads", "images");
+            let upload = data.body.BRAND_IMAGE || custom_helpers_1.default.file_changepath(data.file.path);
             let result = yield Brand_model_1.BrandInstance.update({
                 BRAND_IMAGE: upload,
                 BRAND_NAME: data.body.BRAND_NAME,
@@ -574,6 +619,7 @@ class AdminServiceClass {
             return true;
         });
         this.delBrands = (data) => __awaiter(this, void 0, void 0, function* () {
+            console.log("brand_id", data);
             let { id } = data.query;
             let result = yield Brand_model_1.BrandInstance.destroy({
                 where: {
@@ -584,7 +630,7 @@ class AdminServiceClass {
         });
         this.CategoryPDF = () => __awaiter(this, void 0, void 0, function* () {
             const result = yield category_model_1.CategoryInstance.findAll({
-                attributes: ['CATEGORY_ID', 'CATEGORY_NAME'],
+                attributes: ["CATEGORY_ID", "CATEGORY_NAME", "CATEGORY_CODE"],
             });
             return result;
         });

@@ -11,22 +11,30 @@ BrandInstance.init({
         type: sequelize_1.DataTypes.INTEGER,
         primaryKey: true,
         allowNull: false,
-        autoIncrement: true
+        autoIncrement: true,
     },
     BRAND_NAME: {
         type: sequelize_1.DataTypes.STRING,
         allowNull: false,
     },
+    BRAND_CODE: {
+        type: sequelize_1.DataTypes.STRING,
+        allowNull: true,
+    },
     BRAND_IMAGE: {
-        type: sequelize_1.DataTypes.TEXT,
+        type: sequelize_1.DataTypes.STRING,
         allowNull: false,
     },
     BRAND_STATUS: {
         type: sequelize_1.DataTypes.BOOLEAN,
-        defaultValue: true
+        defaultValue: true,
+    },
+    ISDELETED: {
+        type: sequelize_1.DataTypes.BOOLEAN,
+        defaultValue: false,
     },
 }, {
     sequelize: db_connection_1.sequelizeDB,
-    tableName: 'tbl_brands',
+    tableName: "tbl_brands",
 });
 //# sourceMappingURL=Brand.model.js.map

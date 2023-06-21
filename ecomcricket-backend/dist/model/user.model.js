@@ -3,7 +3,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserInstance = void 0;
 const sequelize_1 = require("sequelize");
 const db_connection_1 = require("../db/db-connection");
-const userrole_1 = require("./userrole");
 class UserInstance extends sequelize_1.Model {
 }
 exports.UserInstance = UserInstance;
@@ -53,16 +52,16 @@ UserInstance.init({
     sequelize: db_connection_1.sequelizeDB,
     tableName: 'tbl_user',
 });
-userrole_1.RoleInstance.hasOne(UserInstance, {
-    foreignKey: {
-        name: 'USERROLE',
-        allowNull: false
-    }
-});
-UserInstance.belongsTo(userrole_1.RoleInstance, {
-    foreignKey: {
-        name: 'USERROLE',
-        allowNull: false
-    }
-});
+// RoleInstance.hasOne(UserInstance,{
+//     foreignKey: {
+//         name: 'USERROLE',
+//         allowNull: false
+//       }
+// });
+// UserInstance.belongsTo(RoleInstance,{
+//     foreignKey: {
+//         name: 'USERROLE',
+//         allowNull: false
+//       }
+// });
 //# sourceMappingURL=user.model.js.map

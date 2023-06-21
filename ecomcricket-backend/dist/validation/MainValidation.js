@@ -9,28 +9,28 @@ const joi_1 = __importDefault(require("joi"));
 const apistatus_1 = __importDefault(require("../utils/apistatus"));
 const ProductValidation = (req, res, next) => {
     const schema = joi_1.default.object({
-        CATEGORY_ID: joi_1.default.number().required(),
-        SUBCATEGORY_ID: joi_1.default.number().required(),
-        BRAND_ID: joi_1.default.number().required(),
-        PRODUCTSIZE_ID: joi_1.default.string().required(),
-        PRODUCTCOLOR_ID: joi_1.default.string().required(),
+        CATEGORY_ID: joi_1.default.string().required(),
+        SUBCATEGORY_ID: joi_1.default.string(),
+        BRAND_ID: joi_1.default.string().required(),
+        PRODUCTSIZE_ID: joi_1.default.any().required(),
+        PRODUCTCOLOR_ID: joi_1.default.any().required(),
         PRODUCT_NAME: joi_1.default.string().required(),
         PRODUCT_QUANTITY: joi_1.default.number().required(),
         PRODUCT_DESCRIPTION: joi_1.default.string().required(),
         PRODUCT_PRICE: joi_1.default.number().required(),
         PRODUCT_TAG: joi_1.default.string().required(),
-        PRODUCT_IMAGE: joi_1.default.any(),
         PRODUCT_BARCODE: joi_1.default.any(),
         COMPANYCODE: joi_1.default.any(),
+        PACKAGETYPE: joi_1.default.string().required(),
         WEIGHT: joi_1.default.any().required(),
-        PACKAGETYPE: joi_1.default.any().required(),
         BRANCHNAME: joi_1.default.any().required(),
         PRODUCT_DISCOUNTSTATUS: joi_1.default.number(),
         PRODUCT_DISCOUNT: joi_1.default.any(),
         PRODUCT_ID: joi_1.default.any(),
         TECHINFO: joi_1.default.any().required(),
         ADDITINFO: joi_1.default.any().required(),
-        PRODUCT_IMAGE_OLD: joi_1.default.any().required(),
+        PRODUCT_IMAGE: joi_1.default.any().optional(),
+        PRODUCT_IMAGE_OLD: joi_1.default.any(),
     });
     const { error } = schema.validate(req.body);
     if (error) {
@@ -45,7 +45,7 @@ const BannerValidation = (req, res, next) => {
     const schema = joi_1.default.object({
         BANNER_DESC: joi_1.default.string().required(),
         BANNER_IMAGE: joi_1.default.any(),
-        BANNER_ID: joi_1.default.any(),
+        BANNER_ID: joi_1.default.number().optional(),
     });
     const { error } = schema.validate(req.body);
     if (error) {

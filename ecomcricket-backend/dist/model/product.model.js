@@ -14,23 +14,23 @@ ProductInstance.init({
         autoIncrement: true,
     },
     CATEGORY_ID: {
-        type: sequelize_1.DataTypes.INTEGER,
-        allowNull: true,
+        type: sequelize_1.DataTypes.STRING,
+        allowNull: false,
     },
     SUBCATEGORY_ID: {
-        type: sequelize_1.DataTypes.INTEGER,
+        type: sequelize_1.DataTypes.STRING,
         allowNull: true,
     },
     BRAND_ID: {
-        type: sequelize_1.DataTypes.INTEGER,
+        type: sequelize_1.DataTypes.STRING,
         allowNull: true,
     },
     PRODUCTSIZE_ID: {
-        type: sequelize_1.DataTypes.TEXT,
+        type: sequelize_1.DataTypes.STRING,
         allowNull: true,
     },
     PRODUCTCOLOR_ID: {
-        type: sequelize_1.DataTypes.TEXT,
+        type: sequelize_1.DataTypes.STRING,
         allowNull: true,
     },
     PRODUCT_NAME: {

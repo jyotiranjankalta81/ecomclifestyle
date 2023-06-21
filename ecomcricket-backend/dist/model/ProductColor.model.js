@@ -17,6 +17,14 @@ ProductColorInstance.init({
         type: sequelize_1.DataTypes.STRING,
         allowNull: false,
     },
+    PRODUCTCOLOR_CODE: {
+        type: sequelize_1.DataTypes.STRING,
+        allowNull: true,
+    },
+    PRODUCTCOLOR_IMAGE: {
+        type: sequelize_1.DataTypes.TEXT,
+        allowNull: true,
+    },
     ISDELETED: {
         type: sequelize_1.DataTypes.BOOLEAN(),
         allowNull: false,
