@@ -6,7 +6,6 @@ export interface CategoryAttributes {
   ISDELETED?: boolean;
 }
 
-
 export interface CountryAttributes {
   COUNTRY_ID?: number;
   COUNTRY_NAME: string;
@@ -23,7 +22,7 @@ export interface StateAttributes {
 
 export interface SubCategoryAttributes {
   SUBCATEGORY_ID?: number;
-  CATEGORY_ID?: number;
+  CATEGORYS_ID?: number;
   SUBCATEGORY_NAME: string;
   ISDELETED?: boolean;
 }
@@ -61,8 +60,8 @@ export interface ProductAttributes {
   WEIGHT?: any;
   PACKAGETYPE?: String;
   BRANCHNAME?: any;
-  TECHINFO?:any | null;
-  ADDITINFO?:any | null;
+  TECHINFO?: any | null;
+  ADDITINFO?: any | null;
   ISDELETED?: boolean;
 }
 
@@ -90,7 +89,7 @@ export interface orderAttributes {
   USER_ORDER?: string;
   PAYMENT_ID?: string;
   PAYMENT_AT?: string;
-  USER_ADDRESS? : string;
+  USER_ADDRESS?: string;
   ORDER_REFNO?: string;
   AMOUNT?: number;
   TYPE_OF_PAYMENT?: number;

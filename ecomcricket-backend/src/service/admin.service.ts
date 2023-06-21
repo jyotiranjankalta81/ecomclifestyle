@@ -96,7 +96,7 @@ class AdminServiceClass {
 
   PostSubCategory = async (data: any) => {
     const result = await SubCategoryInstance.create({
-      CATEGORY_ID: data.CATEGORY_ID,
+      CATEGORYS_ID: data.CATEGORY_ID,
       SUBCATEGORY_NAME: data.SUBCATEGORY_NAME,
     });
     return result;
@@ -120,7 +120,7 @@ class AdminServiceClass {
   CheckSubCategory = async (data: any) => {
     const result = await SubCategoryInstance.findOne({
       where: {
-        CATEGORY_ID: data.CATEGORY_ID,
+        CATEGORYS_ID: data.CATEGORY_ID,
         SUBCATEGORY_NAME: data.SUBCATEGORY_NAME,
       },
     });

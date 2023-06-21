@@ -14,10 +14,10 @@ SubCategoryInstance.init(
     },
     // ,
 
-    // CATEGORY_ID: {
-    //     type: DataTypes.INTEGER,
-    //     allowNull: false,
-    // }
+    CATEGORYS_ID: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
 
     SUBCATEGORY_NAME: {
       type: DataTypes.STRING,
@@ -44,7 +44,7 @@ CategoryInstance.hasOne(SubCategoryInstance, {
 
 SubCategoryInstance.belongsTo(CategoryInstance, {
   foreignKey: {
-    name: "CATEGORY_ID",
+    name: "CATEGORYS_ID",
     allowNull: false,
   },
 });
