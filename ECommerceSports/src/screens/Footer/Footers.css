@@ -1,0 +1,130 @@
+.footer_container {
+  width: 100%;
+  /* background: rgb(82, 81, 81); */
+  height: auto;
+}
+.footer_social_container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem 1rem 1rem;
+  background: #3f51b5;
+  color: #ffffff;
+}
+.divider {
+  width: 100%;
+  border: 1px solid white;
+}
+.social_icons {
+  width: auto;
+  display: flex;
+  gap: 0.3rem;
+}
+.social_icons img {
+  /* padding: 1.5rem; */
+  transform: scale(0.7);
+  cursor: pointer;
+}
+.footer_content_container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 30% 20% 20% 30%;
+  background: #ebeaea;
+}
+.boxes {
+  width: 100%;
+  height: auto;
+  margin: 1.5rem 0rem 0.5rem 0rem;
+  color: #000000;
+}
+.boxes_logo {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  margin: 1.5rem 0rem 0.5rem 0rem;
+  align-items: center;
+  justify-content: center;
+}
+.boxes_logo img {
+  width: 200px;
+  height: 200px;
+}
+.boxes h3 {
+  font-weight: 500;
+  color: #3f51b5;
+}
+.sub_boxes {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+.menu_links {
+  list-style: none;
+  text-decoration: none;
+  color: #000000;
+}
+.menu_items {
+  width: 95%;
+  display: flex;
+  align-items: center;
+  color: #000000;
+  margin: 0%;
+  gap: 0.5rem;
+  padding-right: 0.7rem;
+}
+.top_down {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  height: 70px;
+  padding-right: 10%;
+}
+.scroll_to_top {
+  width: 65px;
+  height: 65px;
+  border-radius: 7px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* position: fixed; */
+  /* bottom: 14%; */
+  /* right: 2%; */
+  color: white;
+  cursor: pointer;
+  background: #080808;
+  box-shadow: 0px 4px 20px 1px #161c3d;
+  border-radius: 50%;
+  /* border: 2px solid #ffffff; */
+}
+
+@media only screen and (min-width: 201px) and (max-width: 580px) {
+  .footer_social_container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 1rem;
+  }
+  .footer_content_container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+  }
+  .boxes_logo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    /* border: 2px solid red; */
+    height: auto;
+    margin-bottom: -2%;
+  }
+}

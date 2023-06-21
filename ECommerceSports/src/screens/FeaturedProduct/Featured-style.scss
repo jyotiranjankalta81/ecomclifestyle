@@ -1,0 +1,278 @@
+@import "../../utils/_variables.scss";
+@import "../../utils/breakpoints";
+
+.main-container {
+  font-family: "Inter";
+  font-style: normal;
+  width: 100%;
+
+  // if the breakpoint is less than or equal to 360px
+  @include media("<=phone") {
+    font-family: "Inter";
+    font-style: normal;
+    width: 100rem;
+  }
+  @include media("<=tablet") {
+    font-family: "Inter";
+    font-style: normal;
+    width: 100rem;
+  }
+  @include media("<=desktop") {
+    width: 100%;
+  }
+  .main-featured-products-container {
+    margin: 2% auto;
+    // float: right;
+
+    @include media("<=phone") {
+      width: 100%;
+      margin: 1rem auto;
+      // float: right;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    @include media("<=tablet") {
+      float: unset;
+      width: 100%;
+    }
+
+    .heading {
+      font-weight: 600;
+      color: $input-text-color;
+      font-size: 35px;
+      line-height: 42px;
+      text-align: center;
+
+      @include media("<=phone") {
+        font-weight: 400;
+        color: $input-text-color;
+        font-size: 22px;
+        line-height: 25px;
+        text-align: center;
+      }
+    }
+
+    .search-field {
+      width: 75%;
+      justify-content: space-between;
+      display: flex;
+      margin-top: 1.5rem;
+      float: right;
+      margin-right: 3rem;
+      align-items: center;
+
+      @include media("<=tablet") {
+        width: 58rem;
+        margin: 0.5rem auto;
+        float: unset;
+      }
+
+      @include media("<=phone") {
+        width: 100%;
+        display: flex;
+        float: unset;
+        border: 0.4px solid white;
+      }
+      .search_products {
+        width: 80%;
+        .search_bar {
+          width: 100%;
+          border: 2px solid #3f51b5;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          border-radius: 7px;
+          @include media("<=phone") {
+            width: 100%;
+          }
+          .search_input {
+            height: 40px;
+          }
+          .search_icon {
+            background: #3f51b5;
+            color: #ffffff;
+            width: 25%;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            // border: 2px solid yellow;
+            height: 40px;
+
+            @include media("<=phone") {
+              width: 40%;
+            }
+          }
+        }
+
+        @include media("<=phone") {
+          width: 55%;
+        }
+        // .css-pa879l-MuiInputBase-root {
+        //   @include media("<=phone") {
+        //     width: 100%;
+        //   }
+        .css-pa879l-MuiInputBase-root .MuiInputBase-input {
+          width: 80ch;
+          @include media("<=phone") {
+            width: 15ch;
+          }
+          // }
+        }
+      }
+
+      .price_filter {
+        width: 20%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: flex-end;
+        // border: 2px solid green;
+        .price_select {
+          background: #3f51b5;
+          height: 2rem;
+          color: #ffffff;
+          padding: 0.5rem;
+          border-radius: 13px;
+          option {
+            background: #ffffff;
+            color: #000000;
+          }
+        }
+      }
+      .input-search {
+        width: 450px;
+        height: 35px;
+        background: #ffffff;
+        border: 1px solid #c3c3c3;
+        border-radius: 30px;
+        color: black;
+        padding-left: 60px;
+        padding-right: 30px;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+
+        @include media("<=tablet") {
+          padding-left: 30px;
+          padding-right: 30px;
+        }
+        @include media("<=phone") {
+          width: 60%;
+        }
+      }
+      .input-search:focus {
+        outline: none;
+      }
+      button {
+        padding: 0.9px 2px;
+      }
+      .btn-pricefilter {
+        width: 151px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        outline: none;
+        height: 35px;
+        background: $secondary-color;
+        border-radius: 30px;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 15px;
+        color: $primary-color;
+      }
+    }
+
+    .filter {
+      // border: 0.3px solid red;
+      width: 28%;
+      position: relative;
+      top: 25px;
+      float: left;
+      // left: 4rem;
+      margin-right: 11px;
+
+      @include media("<=LGdesktop") {
+        width: 20%;
+      }
+      @include media("<=desktop") {
+        width: 20%;
+      }
+      @include media("<=tablet") {
+        width: 20%;
+        position: relative;
+        // float: left;
+        left: 0;
+        top: 1.1rem;
+        margin-right: 5px;
+      }
+      @include media("<=phone") {
+        // display: none;
+        width: 100%;
+        display: flex;
+      }
+    }
+
+    .main-product-cards-container {
+      margin-top: 8.3rem;
+      width: 75%;
+      height: "auto";
+      padding-right: 10px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3rem;
+
+      @include media("<=desktop") {
+        grid-template-columns: repeat(3, 1fr);
+        height: auto;
+      }
+
+      @include media("<=tablet") {
+        margin: 5rem 21rem 1rem 21rem;
+      }
+
+      @include media("<=phone") {
+        height: 100%;
+        padding-right: 0px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        padding-top: 19px;
+        margin: 2rem 0rem 2rem 0rem;
+      }
+    }
+  }
+  .next-page {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 500;
+    margin: 4% 0%;
+
+    @include media("<=phone") {
+      padding: 10px 0;
+      margin: 0;
+    }
+
+    @include media("<=tablet") {
+      margin: 1.8rem 0rem;
+    }
+
+    .view-all-btn {
+      padding: 0px 18px;
+      color: $nav-item-color;
+      text-decoration: none;
+    }
+    .etcdot {
+      margin: 0px 0px;
+    }
+  }
+}

@@ -1,0 +1,84 @@
+.Your-address-sec {
+  display: flex;
+  width: 100%;
+}
+h1 {
+  width: 100%;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 35px;
+  line-height: 42px;
+}
+.Your-address-sec {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  gap: 0%;
+}
+.Your-address-sec .address-div {
+  display: flex;
+  width: 20%;
+  /* height: 7.5rem; */
+  height: fit-content;
+  border-radius: 5px;
+  border: 1px solid black;
+  margin: 4%;
+}
+.address-div img {
+  width: 18%;
+  height: 4rem;
+  margin: 8%;
+}
+.Your-address-sec1 {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  gap: 0%;
+}
+.Your-address-sec1 .address-div1 {
+  display: flex;
+  width: 20%;
+  height: 7.5rem;
+
+  border: 1px solid black;
+  margin: 0% 0% 0% 12%;
+}
+.address-div1 img {
+  width: 18%;
+  height: 4rem;
+  margin: 8%;
+}
+.account-div {
+  text-align: left;
+  width: 59%;
+}
+.account-div h3 {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  margin-bottom: 0%;
+  line-height: 22px;
+}
+.account-div h4 {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  color: #808080;
+}
+
+.account-div1 {
+  width: 50%;
+}
+.account-div1 h3 {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  padding: 15%;
+}

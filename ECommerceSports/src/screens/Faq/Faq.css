@@ -1,0 +1,10 @@
+.faq_child_name {
+  width: 70%;
+  margin: 1rem auto;
+}
+
+@media only screen and (max-width: 580px) {
+  .faq_child_name {
+    width: 90%;
+  }
+}

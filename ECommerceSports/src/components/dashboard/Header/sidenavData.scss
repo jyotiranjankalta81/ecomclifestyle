@@ -1,0 +1,50 @@
+@import "../../../utils/variables.scss";
+@import "../../../utils/_breakpoints.scss";
+
+ListItemIcon:active {
+  color: red;
+}
+.nav-itemss {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+  //   height: auto;
+
+  @include media("<=phone") {
+    display: none;
+  }
+}
+.nav-links-mobiles {
+  display: none;
+  @include media("<=phone") {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    list-style: none;
+    background: white;
+    padding-left: 1rem;
+    gap: 1.5rem;
+    top: 4rem;
+    left: 0;
+    transition: all 0.5s ease;
+    z-index: 2;
+    width: 80%;
+    height: 100vh;
+    text-align: left;
+  }
+}
+.mobile-menu-icon {
+  display: none;
+  @include media("<=phone") {
+    display: block;
+    font-size: 40px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    top: 1.5rem;
+  }
+}

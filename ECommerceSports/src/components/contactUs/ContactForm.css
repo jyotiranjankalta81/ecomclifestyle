@@ -1,0 +1,219 @@
+.contact_form_container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 5% 0%;
+}
+.contact_form_main_container {
+  width: 82%;
+  /* background: #ffffff; */
+  /* background: linear-gradient(to right, #3f51b5 0%, #ffffff 100%); */
+  background: linear-gradient(to bottom right, #ffffff 0%, #3f51b5 100%);
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  height: auto;
+  padding: 2.7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.top_contact_container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 3% 0%;
+}
+.top_contact_container h3 {
+  margin-top: 0%;
+}
+.sub_para {
+  margin: 0%;
+  font-weight: 400;
+  font-size: 16px;
+}
+.left_contact_form {
+  width: 40%;
+  background: linear-gradient(
+    147.9deg,
+    #3f51b5 0%,
+    rgba(64, 136, 216, 0) 140.49%
+  );
+  border-radius: 15px;
+  padding: 2rem 0rem 0rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.right_contact_form {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 2rem;
+}
+.top_right_form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+.grid_input-row {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 48% 48%;
+  justify-content: space-between;
+  row-gap: 1.5rem;
+  border: none;
+}
+.middle_right_form {
+  /* border: 2px solid yellowgreen; */
+  width: 100%;
+}
+.last_form_section {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.sumit_contact_form {
+  border: none;
+  width: auto;
+  padding: 1rem 2.5rem;
+  background: #3f51b5;
+  border-radius: 10px;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 21px;
+  margin-top: 5%;
+  color: #ffffff;
+}
+.top_contact_section {
+  padding-right: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.4rem;
+}
+.top_contact_section p {
+  margin: 0%;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 21px;
+  color: #ffffff;
+}
+.middle_contact_section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.middle_contact_section p {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #ffffff;
+}
+.bottom_contact_section {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.left_bottom_contact {
+  color: #ffffff;
+  display: flex;
+  gap: 0.6rem;
+}
+.icon_image {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  background: #ffffff;
+  border-radius: 50%;
+}
+.right_inside_sectionn {
+  width: 150px;
+  height: 150px;
+  background: #3f51b5;
+  border-radius: 90% 15% 5% 15%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 1.7rem;
+}
+.right_inside_sectionn img {
+  width: 70%;
+  height: 70%;
+  border-radius: 15px;
+}
+@media only screen and (max-width: 1028px) {
+  .contact_form_container {
+    height: auto;
+  }
+  .contact_form_main_container {
+    width: 95%;
+    padding: 0.9rem;
+  }
+  .right_inside_sectionn {
+    width: 65px;
+    height: 65px;
+  }
+  .right_contact_form {
+    justify-content: unset;
+    gap: 1.5rem;
+  }
+}
+@media only screen and (max-width: 580px) {
+  .contact_form_container {
+    margin: 10% 0%;
+  }
+  .contact_form_main_container {
+    flex-direction: column;
+    padding: 0.5rem;
+    width: 95%;
+  }
+  .left_contact_form {
+    width: 100%;
+  }
+  .right_contact_form {
+    width: 100%;
+  }
+  .right_inside_sectionn {
+    width: 80px;
+    height: 80px;
+  }
+  .last_form_section {
+    margin-top: 0.7rem;
+  }
+  .sumit_contact_form {
+    padding: 0.7rem 1.5rem;
+  }
+  .top_contact_section p {
+    font-size: 11px;
+    line-height: 17px;
+  }
+  .middle_contact_section p {
+    font-size: 13px;
+    line-height: 20px;
+  }
+}

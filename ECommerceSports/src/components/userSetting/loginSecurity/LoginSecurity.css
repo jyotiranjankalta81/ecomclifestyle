@@ -1,0 +1,73 @@
+.Login-Section {
+  display: flex;
+  justify-content: center;
+  height: 30rem;
+}
+
+.Login-Section .-div {
+  display: flex;
+  flex-direction: column;
+  width: 23%;
+  height: 26rem;
+  margin: 0% 0% 0% 0%;
+  background-color: white;
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+
+.Login-Section h2 {
+  display: flex;
+  justify-content: center;
+}
+
+.Login-Section form {
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+  width: 85%;
+  padding: 1% 0% 0% 14%;
+}
+
+.Login-Section label {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  color: #808080;
+}
+
+.Login-Section input {
+  border: 0.8px solid #b7b7b7;
+  border-radius: 0.5rem;
+  height: 2rem;
+}
+
+.Login-Section ::placeholder {
+  padding-left: 0.3rem;
+  color: #bdb8b8;
+}
+
+.Login-Section .login-Btn {
+  background: #3f51b5;
+  border-radius: 7px;
+  color: white;
+  border: none;
+  height: 2rem;
+}
+
+@media screen and (max-width: 580px) {
+  .Login-Section {
+    width: 100%;
+    height: auto;
+  }
+  .Login-Section .-div {
+    width: 75%;
+    height: auto;
+    margin-top: 1.5rem;
+  }
+
+  .Login-Section .login-Btn {
+    margin-bottom: 1.5rem;
+  }
+}

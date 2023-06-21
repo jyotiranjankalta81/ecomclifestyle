@@ -1,0 +1,104 @@
+.admin_container {
+  margin-left: 250px;
+  padding: 20px;
+  width: calc(100%-250px);
+  /* box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.1); */
+}
+.dashboard_admin_content {
+  width: 100%;
+  height: 8.3rem;
+  /* border: 2px solid red; */
+  display: flex;
+  align-items: center;
+  margin-top: 1.5%;
+}
+.top_user_view {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.item1 {
+  width: 18%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 32px;
+  justify-content: center;
+  color: #ffffff;
+  height: 6.5rem;
+  border-radius: 10px;
+}
+.dashboard_heading {
+  margin: 0;
+}
+.chart_section {
+  height: 25rem;
+  margin-left: 255px;
+  width: 82.4%;
+  background: #ffffff;
+  box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+.orders_section {
+  height: auto;
+  margin-bottom: 3%;
+}
+.allorder {
+  margin-left: 255px;
+  display: flex;
+  width: 70%;
+  justify-content: space-between;
+}
+
+.brand_section {
+  margin-bottom: 5%;
+}
+.brand_section h3 {
+  text-align: center;
+}
+.brand_add_details {
+  width: 98%;
+  margin-bottom: 1%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.chart_dashboard {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 45% 45%;
+  justify-content: space-between;
+  margin-top: 7%;
+}
+.country_wise_graph {
+  /* border: 2px solid red; */
+  box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 7px;
+  padding: 1.5rem;
+}
+
+@media screen and (max-width: 800px) {
+  .admin_container {
+    margin-left: 0px;
+  }
+  .item1 {
+    padding: 0%;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+  }
+  .dashboard_heading {
+    text-align: center;
+    font-size: 10px;
+  }
+  .chart_dashboard {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: unset;
+  }
+}

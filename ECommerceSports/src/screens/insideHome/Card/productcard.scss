@@ -1,0 +1,201 @@
+@import "../../../utils/variables.scss";
+@import "../../../utils/_breakpoints.scss";
+
+.product-card-container {
+  width: 100%;
+  display: flex;
+  cursor: pointer;
+  flex-direction: column;
+  // border: 1px solid rgb(240, 238, 238);
+  // border: 2px solid green;
+  // height: 470px;
+  height: auto;
+  background: #fffefe;
+  border-radius: 5px;
+  box-shadow: 0 0 0.2rem hsl(0deg 0% 0% / 20%);
+  padding: 1rem;
+  justify-content: space-between;
+  transition: 3s;
+
+  @include media("<=phone") {
+    width: 100%;
+    height: auto;
+    padding: 1px 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+
+  img {
+    width: 250px;
+    height: 250px;
+    background: #fffefe;
+    display: flex;
+    margin: 0rem auto;
+    padding: 0.5rem;
+    // transition: 0.1s;
+
+    @include media("<=phone") {
+      width: 100px;
+      height: 100px;
+    }
+  }
+  .product-card-sub_container {
+    height: 170px;
+    // height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    @include media("<=phone") {
+      width: 75%;
+      display: flex;
+      height: auto;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+      padding: 0rem 0.7rem 0.7rem 0.7rem;
+    }
+    P {
+      @include media("<=phone") {
+        margin: 0%;
+        display: flex;
+        font-size: 10px;
+        // align-items: center;
+
+        .ratings_name {
+          margin: 0%;
+          @include media("<=phone") {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .product-name {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 25px;
+      font-family: "Inter", sans-serif;
+      margin-top: 0px;
+
+      text-overflow: ellipsis;
+      @include media("<=phone") {
+        margin-top: 0rem;
+      }
+    }
+    .tag-container {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      margin-top: 6px;
+
+      @include media("<=phone") {
+        gap: 0.3rem;
+        margin-top: 0px;
+        justify-content: center;
+        font-size: 10px;
+      }
+      .tag {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 17px;
+        padding: 0.2rem 0.4rem;
+        font-family: "Inter", sans-serif;
+        color: $primary-color;
+        background: $secondary-color;
+        border-radius: 17px;
+
+        @include media("<=phone") {
+          padding: 0.1rem 0.5rem;
+          font-size: 10px;
+          line-height: 15px;
+        }
+      }
+      p {
+        border: 2px solid green;
+        @include media("<=phone") {
+          margin: 0%;
+        }
+      }
+      .name {
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 19px;
+
+        color: $secondary-color;
+        @include media("<=phone") {
+          font-size: 10px;
+          line-height: 16px;
+        }
+      }
+    }
+    .rating_reviews {
+      margin: 0%;
+      font-size: 12px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+    }
+    .price-container {
+      display: flex;
+      margin-top: 0.5rem;
+      gap: 0.5rem;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 19px;
+
+      @include media("<=phone") {
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        line-height: 16px;
+        margin: 0%;
+      }
+
+      .selling-price {
+        color: $secondary-color;
+      }
+      .mrp {
+        font-weight: 400;
+        color: $mrp-color;
+        span {
+          text-decoration: line-through;
+        }
+      }
+    }
+    .details_container {
+      display: block;
+      width: 100%;
+      transition: 5s;
+      span {
+        margin: 0%;
+        padding: 0%;
+        font-size: 1px;
+      }
+    }
+    .nothing {
+      display: none;
+    }
+  }
+  .product-card-sub_container:hover {
+    height: auto;
+    transition: 5s;
+    .details_container {
+      transition: 7s;
+      display: block;
+      width: 100%;
+      span {
+        margin: 0%;
+        padding: 0%;
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.product-card-container:hover {
+  transform: scale(1.1);
+  z-index: 10;
+  box-shadow: 3px 3px 8px 4px rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,132 @@
+.rating-review {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  // justify-content: space-between;
+  padding-left: 1.5rem;
+}
+.rating-review h1 {
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  margin-top: 5rem;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 35px;
+  line-height: 42px;
+}
+.rating-review .btn2 {
+  display: flex;
+  width: 10%;
+  padding: 1%;
+  background-color: white;
+  border: none;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  font-family: "Inter", sans-serif;
+
+  color: #000000;
+  box-shadow: 0 0rem 0.2rem hsl(0deg 0% 0% / 20%);
+}
+.rating-review1 {
+  display: flex;
+}
+.rating-review1 h2 {
+  display: flex;
+  padding: 1% 0% 1% 5%;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+}
+.rating-review3 {
+  display: flex;
+  // justify-content: center;
+  width: 90%;
+  height: 28rem;
+  background-color: white;
+  box-shadow: 0 0rem 2rem hsl(0deg 0% 0% / 20%);
+  margin: 1% 0% 0% 5%;
+  margin-bottom: 5%;
+}
+.rating-review3 .rating-div {
+  display: flex;
+  flex-direction: column;
+  padding: 2%;
+  width: 45%;
+  text-align: justify;
+}
+.rating-review3 h3 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+}
+.rating-review3 p {
+  width: 100%;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+}
+.rating-review3 hr {
+  display: flex;
+}
+.rating-review3 .rating-div1 {
+  display: flex;
+  flex-direction: column;
+  padding: 2%;
+  width: 62%;
+  text-align: justify;
+}
+
+.rate {
+  display: flex;
+  height: 46px;
+  // padding: 0 10px;
+}
+.rate:not(:checked) > input {
+  position: absolute;
+  top: -9999px;
+}
+.rate:not(:checked) > label {
+  float: right;
+  width: 1em;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+  font-size: 30px;
+  color: #ccc;
+}
+.rate:not(:checked) > label:before {
+  content: "★ ";
+}
+.rate > input:checked ~ label {
+  color: #ffc700;
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+  color: #deb217;
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+  color: #c59b08;
+}
+.rating-review3 textarea {
+  margin-top: 1%;
+  border: none;
+  background: #eef0ff;
+}
+.rating-review3 .btn1 {
+  background: #3f51b5;
+  color: white;
+  width: 25%;
+  margin: 2% 0% 0% 0%;
+  height: 2.2rem;
+  border-radius: 5%;
+  border: none;
+}

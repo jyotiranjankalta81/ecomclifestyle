@@ -1,0 +1,18 @@
+/* .scroll_container {
+  width: 65px;
+  height: 65px;
+  border-radius: 7px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 14%;
+  right: 2%;
+  color: white;
+  cursor: pointer;
+  background: #3f51b5;
+  box-shadow: 0px 4px 20px 1px #3f51b5;
+  border-radius: 10px;
+  border: 2px solid #ffffff;
+} */

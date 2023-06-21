@@ -1,0 +1,67 @@
+.print_container {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.order_short_details {
+  width: 100%;
+}
+
+.item_order {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 70% 30%;
+  justify-content: space-between;
+}
+
+.print_sub_container {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  box-shadow: 0 0 5px hsla(0, 0%, 0%, 0.1);
+  margin: 2.5rem 0rem 0rem 0rem;
+}
+
+.items_oredred {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.delivery_details {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.delivery_details p {
+  margin: 0%;
+}
+.payment_info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.payment_info_right {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.download_invoice {
+  width: 25%;
+  display: flex;
+  margin: 2.3rem auto;
+  height: 45px;
+  border-radius: 10px;
+  background: #3f51b5;
+  color: #ffffff;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+  border: none;
+}

@@ -1,0 +1,74 @@
+@import "../../../utils/variables.scss";
+@import "../../../utils/breakpoints.scss";
+.top-sellers-container {
+  width: 100%;
+  font-family: "Inter";
+  margin-top: 3.9rem;
+
+  @include media("<=phone") {
+    width: 100%;
+  }
+  .heading {
+    font-weight: 600;
+    color: $input-text-color;
+    font-size: 35px;
+    line-height: 42px;
+    text-align: center;
+  }
+  .product-cards-container {
+    width: 100%;
+    margin-top: 3rem;
+    display: flex;
+    gap: 3rem;
+    justify-content: space-between;
+
+    @include media("<=phone") {
+      width: 100%;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 0rem;
+    }
+
+    @include media("<=desktop") {
+      width: 100%;
+    }
+  }
+}
+
+.crousel_section {
+  width: 100%;
+  height: auto;
+  // height: 75vh;
+  // padding: 1rem;
+  .react-multi-carousel-list {
+    overflow: unset;
+    .react-multi-carousel-track {
+      gap: 3rem;
+
+      li {
+        @include media("<=phone") {
+          width: 100%;
+        }
+      }
+      @include media("<=phone") {
+        gap: 0rem;
+      }
+
+      .carousel-item-padding-40-px {
+        @include media("<=phone") {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  @include media("<=phone") {
+    height: auto;
+  }
+
+  .react-multiple-carousel__arrow--right {
+    right: calc(1% + 1px);
+  }
+  .react-multiple-carousel__arrow--left {
+    left: calc(1% + 1px);
+  }
+}

@@ -1,0 +1,106 @@
+
+Step 1: Update the system
+sudo apt update
+
+Step 2: Install MySql
+sudo apt install mysql-server
+
+Step 3: Check the Status of MySql (Active or Inactive)
+sudo systemctl status mysql
+
+Step 4: Login to MySql as a root
+sudo mysql
+#for giving access my sql from everywhere
+cd /etc/mysql/mysql.conf.d/
+
+step-2:--
+find mysqld.cnf file and open this file and ip address.
+
+step-3:
+for opening the above file 
+sudo nano mysqld.cnf
+
+step-4:
+change the IP to access everywhere 0.0.0.0
+
+step-5:
+then restart the mysql
+command:sudo service mysql restart
+
+step-6:
+Check the Status of MySql (Active or Inactive)
+sudo systemctl status mysql
+
+step-7:
+Login to MySql as a root
+sudo mysql
+
+step-8:
+Update the password for the MySql Server
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Kalta@1a';
+RENAME USER 'root'@'localhost' TO 'root'@'%';
+
+FLUSH PRIVILEGES;
+
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';
+
+step-9:
+Test the MySql server if it is working by running sample sql queries
+CREATE DATABASE mysql_test;
+
+USE mysql_test;
+
+CREATE TABLE table1 (id INT, name VARCHAR(45));
+
+INSERT INTO table1 VALUES(1, 'Virat'), (2, 'Sachin'), (3, 'Dhoni'), (4, 'ABD');
+
+SELECT * FROM table1;
+
+
+step-10:
+check user list
+SELECT user,plugin,host from mysql.user;
+
+step-11:
+for remote access we have to change from localhost to everywhere
+
+RENAME USER .... TO ...
+
+
+
+Node Js installation setup:-
+Great for testing simple deployments on Cloud
+Step 1: Install NodeJS and NPM using nvm
+Install node version manager (nvm) by typing the following at the command line.
+sudo su -
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+
+or 
+curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+Activate nvm by typing the following at the command line.===============================>
+. ~/.nvm/nvm.sh
+
+Use nvm to install the latest version of Node.js by typing the following at the command line.=============>
+nvm install node
+
+
+Test that node and npm are installed and running correctly by typing the following at the terminal:================>
+node -v
+npm -v
+
+
+
+Step 2: Install Git and clone repository from GitHub
+To install git, run below commands in the terminal window:
+sudo apt-get update -y
+sudo apt-get install git -y
+
+Just to verify if system has git installed or not, please run below command in terminal:==============================>
+git — version
+
+
+This command will print the git version in the terminal======================================================>
+Run below command to clone the code repository from Github:
+git clone https://github.com/yeshwanthlm/nodejs-on-ec2.git

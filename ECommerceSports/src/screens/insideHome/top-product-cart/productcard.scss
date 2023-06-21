@@ -1,0 +1,167 @@
+@import "../../../utils/variables.scss";
+@import "../../../utils/_breakpoints.scss";
+
+.top_product_container {
+  width: 100%;
+
+  @include media("<=phone") {
+    width: 100%;
+    // margin: 1.5rem;
+    padding: 1rem;
+  }
+
+  .product-card-container {
+    width: 100%;
+    display: flex;
+    cursor: pointer;
+    flex-direction: column;
+    // height: 460px;
+    height: auto;
+    background: #fffefe;
+    border-radius: 3px;
+    box-shadow: 0 0 0.2rem hsl(0deg 0% 0% / 20%);
+    padding: 1rem;
+    // justify-content: space-between;
+    transition: 1s;
+
+    img {
+      width: 250px;
+      height: 250px;
+      // border: 0.5px solid rgb(230, 226, 226);
+      background: #fffefe;
+      display: flex;
+      margin: 0rem auto;
+      padding: 0.5rem;
+    }
+
+    @include media("<=phone") {
+      width: 100%;
+      height: auto;
+      padding: 0.5rem;
+      display: flex;
+      flex-direction: row;
+      // flex-wrap: wrap;
+    }
+
+    img {
+      @include media("<=phone") {
+        width: 100px;
+        height: 100px;
+        padding: 0.5rem 0.5rem 0.5rem 0rem;
+        // border: 5px solid rgb(52, 218, 218);
+      }
+    }
+    .product-card-sub_container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      // gap: 0.4rem;
+      margin-top: 0.7rem;
+      @include media("<=phone") {
+        // width: 70%;
+        // border: 2px solid green;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .product-name {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 25px;
+        font-family: "Inter", sans-serif;
+        margin-top: 0px;
+        height: auto;
+        text-overflow: ellipsis;
+        @include media("<=phone") {
+          // width: 100%;
+          height: auto;
+          text-overflow: unset;
+          text-align: unset;
+        }
+      }
+      .tag-container {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        margin-top: 6px;
+
+        @include media("<=phone") {
+          gap: 0.3rem;
+          margin-top: 24px;
+          justify-content: center;
+        }
+        .tag {
+          font-weight: 400;
+          font-size: 12px;
+          line-height: 17px;
+          padding: 0.2rem 0.4rem;
+          border-radius: 17px;
+          font-family: "Inter", sans-serif;
+          color: $primary-color;
+          background: $secondary-color;
+          // border-radius: 2px;
+
+          @include media("<=phone") {
+            padding: 0.1rem 0.1rem;
+            font-size: 12px;
+            line-height: 15px;
+          }
+        }
+        .name {
+          font-weight: 500;
+          font-size: 12px;
+          line-height: 19px;
+          border-radius: 7px;
+
+          color: $secondary-color;
+          @include media("<=phone") {
+            font-size: 14px;
+            line-height: 16px;
+          }
+        }
+      }
+      .rating_reviews {
+        margin: 0%;
+        font-size: 12px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+      }
+      .price-container {
+        display: flex;
+        margin-top: 0.5rem;
+        gap: 0.5rem;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 19px;
+        align-items: center;
+
+        @include media("<=phone") {
+          align-items: center;
+          justify-content: center;
+          font-size: 14px;
+          line-height: 16px;
+        }
+
+        .selling-price {
+          color: $secondary-color;
+          font-size: 20px;
+        }
+        .mrp {
+          font-weight: 400;
+          font-size: 12px;
+          color: $mrp-color;
+          span {
+            text-decoration: line-through;
+          }
+        }
+      }
+    }
+  }
+
+  // .product-card-container:hover {
+  //   transform: scale(1.2);
+  // }
+}

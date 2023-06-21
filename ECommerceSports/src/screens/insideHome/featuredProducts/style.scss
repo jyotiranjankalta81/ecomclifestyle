@@ -1,0 +1,75 @@
+@import "../../../utils/variables.scss";
+// @import "../../utils/_variables.scss";
+@import "../../../utils/_breakpoints.scss";
+
+.featured-products-container {
+  font-family: "Inter";
+  margin-top: 2.7rem;
+  padding: 1rem;
+  @include media("<=phone") {
+    margin-top: 3rem;
+  }
+  .heading {
+    font-weight: 600;
+    color: $input-text-color;
+    font-size: 35px;
+    line-height: 42px;
+    text-align: center;
+  }
+  > .product-cards-container {
+    margin-top: 4.3rem;
+    // border: 2px solid red;
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 3rem;
+
+    @include media("<=desktop") {
+      width: 100%;
+      margin-top: 1.1rem;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    @include media("<=phone") {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  .featured-product__filter {
+    margin-top: 4.68rem;
+    display: none;
+    justify-content: center;
+    gap: 2.5rem;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+
+    > .filter-options {
+      padding: 0.5rem 2.5rem;
+      border-radius: 30px;
+      color: $nav-item-color;
+      border: 1px solid $filter-border;
+      cursor: pointer;
+    }
+    > .active-filter {
+      color: $primary-color;
+      background: $secondary-color;
+    }
+  }
+  .view-all-btn-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 4.3rem;
+    .view-all-btn {
+      font-family: "Inter";
+      padding: 0.8rem 4.68rem;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 19px;
+      color: $primary-color;
+      text-decoration: none;
+      background: $secondary-color;
+      border-radius: 30px;
+    }
+  }
+}

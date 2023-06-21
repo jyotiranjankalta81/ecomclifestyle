@@ -1,0 +1,253 @@
+@import "../../utils/_variables.scss";
+@import "../../utils/_breakpoints.scss";
+
+.footer-container {
+  background: #3f51b5;
+  position: relative;
+  height: 450px;
+  width: 100%;
+  overflow-x: hidden;
+
+  @include media("<=desktop") {
+    height: auto;
+    width: 100%;
+  }
+  @include media("<=tablet") {
+    height: 530px;
+    width: 100%;
+  }
+  @include media("<=phone") {
+    height: 700px;
+    width: 100%;
+  }
+
+  .content {
+    max-width: 1250px;
+    // width: 100%;
+    overflow-y: hidden;
+    margin: 11px auto;
+    padding: 10px 10px 10px 10px;
+
+    @include media("<=phone") {
+      // padding: 25px 10px 10px 10px;
+      // margin: 1px auto;
+      // padding: 8px 10px 10px 10px;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    @include media("<=tablet") {
+      height: 95%;
+    }
+    @include media("<=desktop") {
+      height: 100%;
+    }
+    .link-boxes {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+
+      @include media("<=phone") {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .box {
+        width: calc(34% - 13px);
+        // border: 2px solid yellowgreen;
+        height: 40vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        @include media("<=phone") {
+          width: 100%;
+        }
+        //   border: 0.5px solid red;
+
+        .logoflex {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          // border: 2px solid red;
+          padding: 2rem;
+          height: 100%;
+          .footer_img {
+            // border: 2px solid rgb(0, 119, 255);
+            width: 100%;
+            height: 40vh;
+
+            img {
+              width: 100%;
+              height: 100%;
+            }
+          }
+          @include media("<=phone") {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 4rem;
+          }
+
+          .logohead {
+            // display: flex;
+            // justify-content: center;
+            position: relative;
+            top: 21px;
+            height: 30.5px;
+            // align-items: center;
+            font-family: "Inter";
+            font-style: normal;
+            list-style: none;
+            font-weight: 700;
+            font-size: 19px;
+            line-height: 29px;
+            color: $primary-color;
+
+            @include media("<=phone") {
+              position: static;
+              top: auto;
+            }
+          }
+        }
+        p {
+          color: $primary-color;
+          font-family: "Inter";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 29px;
+
+          @include media("<=phone") {
+            padding-left: 3px;
+          }
+        }
+        .phoneNo {
+          display: flex;
+          // justify-content: center;
+          height: 40px;
+          align-items: center;
+          font-family: "Exo 2";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 29px;
+          color: $primary-color;
+        }
+      }
+    }
+  }
+}
+
+.box {
+  @include media("<=phone") {
+    padding-left: 0%;
+  }
+  li {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    list-style: none;
+    font-size: 8px;
+    line-height: 24px;
+    color: $primary-color;
+    margin: 6px 0px;
+    padding-left: 150px;
+
+    .menu_links {
+      text-decoration: none;
+      list-style: none;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 0%;
+    }
+
+    @include media("<=phone") {
+      margin: 0% 0%;
+      padding-left: 0%;
+      // margin: 6px 0;
+      // padding-left: 44px;
+    }
+  }
+  .foothead {
+    font-family: "Inter";
+    font-style: normal;
+    list-style: none;
+    font-weight: 700;
+    margin-top: 0%;
+    font-size: 19px;
+    line-height: 29px;
+    color: $primary-color;
+  }
+}
+
+.newsletter-tag {
+  width: 100%;
+  height: 44px;
+  text-align: center;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  color: $primary-color;
+
+  @include media("<=phone") {
+    display: flex;
+  }
+}
+.form {
+  display: flex;
+  justify-content: center;
+}
+.form .newsletterinput {
+  border-radius: 10px;
+  width: 523px;
+  padding-left: 20px;
+  height: 45px;
+  font-size: 16px;
+  border: none;
+  background: #d9d9d9;
+
+  @include media("<=phone") {
+    width: 90%;
+  }
+}
+.form .newsletterinput:focus {
+  outline: none;
+}
+.form .newsletterinput::placeholder {
+  width: 122px;
+  height: 19px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  line-height: 19px;
+  color: $placeholder-color;
+}
+
+.form .form-search .btn-subscribe {
+  width: 181px;
+  height: 45px;
+  border-radius: 10px;
+  margin-left: 9px;
+  outline: none;
+  background: $footer-btn;
+  border: none;
+  //text-inside btn
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  color: $primary-color;
+
+  @include media("<=phone") {
+    margin-left: 0%;
+    margin-top: 1rem;
+  }
+}

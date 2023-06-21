@@ -1,0 +1,45 @@
+.user_profile_container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.profile_header {
+  width: 80%;
+}
+.profile_header h2 {
+  font-weight: 400;
+}
+.button_container {
+  width: 100%;
+  display: flex;
+  gap: 2rem;
+}
+.two_sided_container {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 70vh;
+}
+.image_container {
+  width: 35%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+}
+.details_container {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2rem;
+  gap: 1rem;
+}
+.details_container p {
+  margin: 0%;
+}

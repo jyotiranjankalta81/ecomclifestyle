@@ -1,0 +1,114 @@
+@import "../../utils/variables";
+@import "../../utils/_breakpoints.scss";
+
+.ratingtop {
+  display: flex;
+  width: 90%;
+  margin: 50px auto;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+
+  .ratinghead {
+    font-size: 30px;
+    line-height: 36px;
+    color: $product-title;
+  }
+
+  .rateproduct {
+    display: none;
+    width: 326px;
+    height: 60px;
+    background: $primary-color;
+    border: none;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    font-size: 20px;
+    line-height: 24px;
+    color: $product-title;
+  }
+  @include media("<=phone") {
+    width: 1203px;
+    margin: 25px auto;
+    padding: 1px 8px 1px 21px;
+  }
+  @include media("<=tablet") {
+    width: 100rem;
+    margin: 25px auto;
+    padding: 1px 8px 1px 21px;
+  }
+  @include media("<=desktop") {
+    width: 100%;
+    margin: 25px auto;
+    padding: 1px 8px 1px 21px;
+  }
+}
+.commentsplusprogressbar {
+  margin: 8px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+
+  .progress-bar {
+    text-align: center;
+    width: 620px;
+  }
+  @include media("<=phone") {
+    width: 1221px;
+  }
+  @include media("<=tablet") {
+    width: 100rem;
+  }
+  @include media("<=desktop") {
+    width: 100%;
+  }
+}
+.usercomments {
+  margin: 59px auto;
+  width: 100%;
+  .see_all_reviews {
+    width: 85%;
+    margin: 28px auto;
+    display: flex;
+  }
+
+  .commentlist {
+    width: 60%;
+    margin: 28px auto;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.1);
+
+    @include media("<=phone") {
+      width: 94%;
+    }
+    @include media("<=tablet") {
+      width: 80%;
+    }
+    @include media("<=desktop") {
+      width: 86%;
+    }
+
+    span {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 22px;
+    }
+  }
+  @include media("<=phone") {
+    margin: 38px 2px;
+    width: 1200px;
+  }
+  @include media("<=tablet") {
+    margin: 38px 2px;
+    width: 100rem;
+  }
+  @include media("<=desktop") {
+    margin: 38px 2px;
+    width: 100%;
+  }
+}

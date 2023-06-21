@@ -1,0 +1,66 @@
+@import "../../utils/variables.scss";
+@import "../../utils/_breakpoints.scss";
+
+.filter-section {
+  margin-left: 56px;
+  // @include media("<=phone") {
+  //   display: block;
+  // }
+  @include media("<=tablet") {
+    margin-left: 16px;
+  }
+  @include media("<=desktop") {
+    margin-left: 17px;
+  }
+  @include media("<=LGdesktop") {
+    margin-left: 17px;
+  }
+  img {
+    width: 16px;
+    height: 16px;
+    transform: scale(1.5);
+  }
+  .filter-head {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.05em;
+    position: relative;
+    bottom: 2px;
+    color: $input-text-color;
+    margin-left: 10px;
+  }
+  .filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    margin-top: 30px;
+
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    color: $input-text-color;
+
+    .expand-icon {
+      width: 10px;
+      position: relative;
+      top: 6px;
+    }
+
+    .filter-line {
+      width: 220px;
+      height: 0px;
+      background-color: #c3c3c3;
+      outline: none;
+      margin: 0;
+      padding: 0;
+      border: 1.2px solid #c3c3c3;
+    }
+  }
+}

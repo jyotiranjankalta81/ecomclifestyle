@@ -1,0 +1,94 @@
+.add_user_container {
+  box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+.submits {
+  width: 30%;
+  border: none;
+  border-radius: 7px;
+  height: 40px;
+  background: #3f51b5;
+  color: white;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+}
+.heading_add_user {
+  text-align: center;
+  margin-top: 20px;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 45px;
+  margin-bottom: 0rem;
+  text-align: center;
+  width: 100%;
+}
+.add_details_container {
+  width: 100%;
+  padding: 2rem;
+}
+.Add_User-form {
+  width: 100%;
+  border-radius: 10px;
+  color: #000000;
+  /* box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.25); */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.input_add_admin {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 45% 45%;
+  justify-content: space-between;
+}
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  /* margin-top: 1rem; */
+  padding-inline: 1.5rem;
+  width: 100%;
+}
+.input-group input {
+  border: 0.8px solid #b7b7b7;
+  padding: 0.5rem 0.9rem;
+  border-radius: 0.5rem;
+}
+.input-group input ::placeholder {
+  color: #b7b7b7;
+}
+
+.error {
+  color: red;
+  font-size: 10px;
+  line-height: 15px;
+}
+
+.register-btn {
+  cursor: pointer;
+  margin-top: 0.6rem;
+  background: #3f51b5;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 21px;
+  outline: none;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  margin-bottom: 20px;
+  width: 25%;
+}
+
+@media screen and (max-width: 800px) {
+  .input_add_admin {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .register-btn {
+    width: 70%;
+    display: flex;
+    margin: auto;
+  }
+}

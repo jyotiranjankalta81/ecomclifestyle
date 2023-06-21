@@ -1,0 +1,16 @@
+.order-list {
+  display: flex;
+  flex-direction: row;
+}
+
+.order_circular {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.order_pie {
+  margin-top: 5rem;
+  width: 450px;
+  height: 450px;
+}
