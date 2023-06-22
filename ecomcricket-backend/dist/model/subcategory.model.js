@@ -15,7 +15,7 @@ SubCategoryInstance.init({
         autoIncrement: true,
     },
     // ,
-    CATEGORYS_ID: {
+    CATEGORY_ID: {
         type: sequelize_1.DataTypes.INTEGER,
         allowNull: false,
     },
@@ -40,7 +40,7 @@ category_model_1.CategoryInstance.hasOne(SubCategoryInstance, {
 });
 SubCategoryInstance.belongsTo(category_model_1.CategoryInstance, {
     foreignKey: {
-        name: "CATEGORYS_ID",
+        name: "CATEGORY_ID",
         allowNull: false,
     },
 });

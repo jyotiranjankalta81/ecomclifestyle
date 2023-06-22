@@ -22,7 +22,7 @@ export interface StateAttributes {
 
 export interface SubCategoryAttributes {
   SUBCATEGORY_ID?: number;
-  CATEGORYS_ID?: number;
+  CATEGORY_ID?: number;
   SUBCATEGORY_NAME: string;
   ISDELETED?: boolean;
 }

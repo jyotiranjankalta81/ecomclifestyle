@@ -125,6 +125,7 @@ class AdminControllerClass {
                 }
             }
             catch (error) {
+                console.log("error", error);
                 return res
                     .status(http_status_1.default.BAD_REQUEST)
                     .send({ success: false, message: "Somthing went wrong!", data: error });

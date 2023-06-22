@@ -88,7 +88,7 @@ class AdminServiceClass {
         });
         this.PostSubCategory = (data) => __awaiter(this, void 0, void 0, function* () {
             const result = yield subcategory_model_1.SubCategoryInstance.create({
-                CATEGORYS_ID: data.CATEGORY_ID,
+                CATEGORY_ID: data.CATEGORY_ID,
                 SUBCATEGORY_NAME: data.SUBCATEGORY_NAME,
             });
             return result;
@@ -107,7 +107,7 @@ class AdminServiceClass {
         this.CheckSubCategory = (data) => __awaiter(this, void 0, void 0, function* () {
             const result = yield subcategory_model_1.SubCategoryInstance.findOne({
                 where: {
-                    CATEGORYS_ID: data.CATEGORY_ID,
+                    CATEGORY_ID: data.CATEGORY_ID,
                     SUBCATEGORY_NAME: data.SUBCATEGORY_NAME,
                 },
             });
